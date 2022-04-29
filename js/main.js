@@ -30,117 +30,121 @@ const icons = [
 		prefix: 'fa-',
 		type: 'animal',
 		family: 'fas',
-		color: 'orange'
+		color: ``
 	},
 	{
 		name: 'crow',
 		prefix: 'fa-',
 		type: 'animal',
 		family: 'fas',
-		color: 'orange'
+		color: ''
 	},
 	{
 		name: 'dog',
 		prefix: 'fa-',
 		type: 'animal',
 		family: 'fas',
-		color: 'orange'
+		color: ''
 	},
 	{
 		name: 'dove',
 		prefix: 'fa-',
 		type: 'animal',
 		family: 'fas',
-		color: 'orange'
+		color: ''
 	},
 	{
 		name: 'dragon',
 		prefix: 'fa-',
 		type: 'animal',
 		family: 'fas',
-		color: 'orange'
+		color: ''
 	},
 	{
 		name: 'horse',
 		prefix: 'fa-',
 		type: 'animal',
 		family: 'fas',
-		color: 'orange'
+		color: ''
 	},
 	{
 		name: 'hippo',
 		prefix: 'fa-',
 		type: 'animal',
 		family: 'fas',
-		color: 'orange'
+		color: ''
 	},
 	{
 		name: 'fish',
 		prefix: 'fa-',
 		type: 'animal',
 		family: 'fas',
-		color: 'orange'
+		color: ''
 	},
 	{
 		name: 'carrot',
 		prefix: 'fa-',
 		type: 'vegetable',
 		family: 'fas',
-		color: 'green'
+		color: ''
 	},
 	{
 		name: 'apple-alt',
 		prefix: 'fa-',
 		type: 'vegetable',
 		family: 'fas',
-		color: 'green'
+		color: ''
 	},
 	{
 		name: 'lemon',
 		prefix: 'fa-',
 		type: 'vegetable',
 		family: 'fas',
-		color: 'green'
+		color: ''
 	},
 	{
 		name: 'pepper-hot',
 		prefix: 'fa-',
 		type: 'vegetable',
 		family: 'fas',
-		color: 'green'
+		color: ''
 	},
 	{
 		name: 'user-astronaut',
 		prefix: 'fa-',
 		type: 'user',
 		family: 'fas',
-		color: 'blue'
+		color: ''
 	},
 	{
 		name: 'user-graduate',
 		prefix: 'fa-',
 		type: 'user',
 		family: 'fas',
-		color: 'blue'
+		color: ''
 	},
 	{
 		name: 'user-ninja',
 		prefix: 'fa-',
 		type: 'user',
 		family: 'fas',
-		color: 'blue'
+		color: ''
 	},
 	{
 		name: 'user-secret',
 		prefix: 'fa-',
 		type: 'user',
 		family: 'fas',
-		color: 'blue'
+		color: ''
 	}
 ]
 
 const outputBox = document.getElementById('row');
 const typeSelect = document.getElementById('type').addEventListener('change',handleClick);
+const randomNumber = (min, max) =>  Math.floor(Math.random() * (max - min +1) + min );
+const reset = () => outputBox.innerHTML = "" ;
+const randomColor = () => randomNumber(100000,999999);
+
 
 
 /* INIZIO */
@@ -161,12 +165,12 @@ function printBox(icon){
     `
         <div class="col">
             <div class="sc-card">
-                <i class="${family} ${prefix}${name} ${color} "></i>
+                <i style= color:#${randomColor()} class="${family} ${prefix}${name}"></i>
                  <span>${name}</span>
             </div>
         </div>
     `
-
+    
 }
 
 function handleClick(){
@@ -184,4 +188,5 @@ function handleClick(){
     
 }
 
-const reset = () => outputBox.innerHTML = "" ;
+
+
