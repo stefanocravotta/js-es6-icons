@@ -145,7 +145,7 @@ const outputBox = document.getElementById('row');
 
 for(let icon of icons){
 
-printBox(icon.family,icon.prefix,icon.name);
+printBox(icon);
 
 }
 
@@ -155,16 +155,29 @@ printBox(icon.family,icon.prefix,icon.name);
 
 /* FUNCTION */
 
-function printBox(family,prefix,name){
+function printBox(icon){
+
+    const {family,prefix,name,color} = icon
 
     outputBox.innerHTML += 
     `
         <div class="col">
             <div class="sc-card">
-                <i class="${family} ${prefix}${name}"></i>
+                <i class="${family} ${prefix}${name} ${sceltaColor(color)}"></i>
                  <span>${name}</span>
             </div>
         </div>
     `
 
+}
+
+function sceltaColor(color){
+
+    if(color === 'green'){
+        return 'green'
+    }else if(color === 'blue'){
+        return 'blue'
+    }else{
+        return 'orange'
+    }
 }
