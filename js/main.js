@@ -140,6 +140,8 @@ const icons = [
 ]
 
 const outputBox = document.getElementById('row');
+const typeSelect = document.getElementById('type').addEventListener('change',handleClick);
+
 
 /* INIZIO */
 
@@ -150,20 +152,16 @@ printBox(icon);
 }
 
 
-
-
-
 /* FUNCTION */
 
 function printBox(icon){
 
     const {family,prefix,name,color} = icon
-
     outputBox.innerHTML += 
     `
         <div class="col">
             <div class="sc-card">
-                <i class="${family} ${prefix}${name} ${sceltaColor(color)}"></i>
+                <i class="${family} ${prefix}${name} ${color} "></i>
                  <span>${name}</span>
             </div>
         </div>
@@ -171,13 +169,19 @@ function printBox(icon){
 
 }
 
-function sceltaColor(color){
+function handleClick(){
 
-    if(color === 'green'){
-        return 'green'
-    }else if(color === 'blue'){
-        return 'blue'
-    }else{
-        return 'orange'
-    }
+    reset();
+    console.log(this.value);
+
+    const filteredArray = icons.filter((elemento) => {
+        const {type} = elemento
+        if(type === this.value){
+            printBox(elemento);    
+        }
+    })
+    
+    
 }
+
+const reset = () => outputBox.innerHTML = "" ;
